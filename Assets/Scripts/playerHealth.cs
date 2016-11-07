@@ -14,6 +14,7 @@ public class playerHealth : MonoBehaviour {
     float smoothColour = 5f;
     public AudioClip playerHurt;
     AudioSource playerAS;
+    public AudioClip playerDeathAudio;
     
     // Use this for initialization
     void Start () {
@@ -23,6 +24,7 @@ public class playerHealth : MonoBehaviour {
         healthSlider.value = fullHealth;
         damaged = false;
         playerAS = GetComponent<AudioSource>();
+
 
 
     }
@@ -66,6 +68,7 @@ public class playerHealth : MonoBehaviour {
     {
         Instantiate(DeathFX, transform.position, transform.rotation);
         Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerDeathAudio, transform.position);
         
     }
 }
