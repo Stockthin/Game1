@@ -70,9 +70,10 @@
     <Compile Include="Assets\Scripts\enemyDamage.cs" />
     <Compile Include="Assets\Scripts\enemyHealth.cs" />
     <Compile Include="Assets\Scripts\enemyMovementController.cs" />
+    <Compile Include="Assets\Scripts\fallThrough.cs" />
+    <Compile Include="Assets\Scripts\healthPickup.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
     <Compile Include="Assets\Scripts\playerHealth.cs" />
-    <Compile Include="Assets\fallThrough.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

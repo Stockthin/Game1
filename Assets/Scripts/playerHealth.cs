@@ -56,6 +56,12 @@ public class playerHealth : MonoBehaviour {
             makeDeath();
         }
     }
+    public void addHealth(float healthAmount)
+    {
+        currentHealth += healthAmount;
+        if (currentHealth > fullHealth) currentHealth = fullHealth;
+        healthSlider.value = currentHealth;
+    }
     public void makeDeath()
     {
         Instantiate(DeathFX, transform.position, transform.rotation);

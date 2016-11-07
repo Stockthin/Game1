@@ -7,6 +7,8 @@ public class enemyHealth : MonoBehaviour {
     float currentHealth;
     public GameObject enemyDeathFx;
     public Slider enemySlider;
+    public bool drops;
+    public GameObject theDrop;
 
 
 	// Use this for initialization
@@ -33,5 +35,6 @@ public class enemyHealth : MonoBehaviour {
     {
         Destroy(gameObject);
         Instantiate(enemyDeathFx, transform.position, transform.rotation);
+        if (drops) Instantiate(theDrop, transform.position, transform.rotation);
     }
 }
