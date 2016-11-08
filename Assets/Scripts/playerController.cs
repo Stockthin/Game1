@@ -30,7 +30,10 @@ public class playerController : MonoBehaviour {
 			myAnim.SetBool ("isGrounded", grounded);
 			myRB.AddForce(new Vector2(0, jumpHeight));
 		}
-        if (Input.GetAxisRaw("Fire1") > 0) fireShuriken();
+        if (Input.GetAxisRaw("Fire1") > 0) {
+            fireShuriken();
+           
+        }
 	}
 	
 	// Update is called once per frame
@@ -39,7 +42,8 @@ public class playerController : MonoBehaviour {
 		myAnim.SetBool ("isGrounded", grounded);
 		myAnim.SetFloat ("verticalSpeed", myRB.velocity.y);	
 		float move = Input.GetAxis ("Horizontal");
-		myAnim.SetFloat ("speed", Mathf.Abs (move));
+        
+        myAnim.SetFloat ("speed", Mathf.Abs (move));
 		myRB.velocity = new Vector2 (move * maxSpeed, myRB.velocity.y);
 		if (move>0&&!facingright){
 			flip ();
@@ -62,13 +66,24 @@ public class playerController : MonoBehaviour {
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
+            
+
             if (facingright)
             {
+                myAnim.SetTrigger("Attrack");
                 Instantiate(bullet, GunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                
+                
+
+
             }
             else if (!facingright)
             {
+                myAnim.SetTrigger("Attrack");
                 Instantiate(bullet, GunTip.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
+                
+
+
             }
         }
        
