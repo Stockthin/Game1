@@ -15,6 +15,8 @@ public class playerHealth : MonoBehaviour {
     public AudioClip playerHurt;
     AudioSource playerAS;
     public AudioClip playerDeathAudio;
+    public Text gameOverScreen;
+    public restartGame theGameManager;
     
     
     // Use this for initialization
@@ -58,7 +60,7 @@ public class playerHealth : MonoBehaviour {
         if (currentHealth <= 0)
         {
            
-            makeDeath();
+            makeDead();
         }
     }
     public void addHealth(float healthAmount)
@@ -67,11 +69,15 @@ public class playerHealth : MonoBehaviour {
         if (currentHealth > fullHealth) currentHealth = fullHealth;
         healthSlider.value = currentHealth;
     }
-    public void makeDeath()
+    public void makeDead()
     {
         Instantiate(DeathFX, transform.position, transform.rotation);
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDeathAudio, transform.position);
+        damageScreen.color = damagedColor;
+        Animator gameOverAnimator = gameOverScreen.GetComponent<Animator>();
+        gameOverAnimator.SetTrigger("gameOver");
+        theGameManager.restartTheGame();
         
     }
 }
