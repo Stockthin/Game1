@@ -16,8 +16,10 @@ public class playerHealth : MonoBehaviour {
     AudioSource playerAS;
     public AudioClip playerDeathAudio;
     
+    
     // Use this for initialization
     void Start () {
+        
         currentHealth = fullHealth;
         controlMovement = GetComponent<playerController>();
         healthSlider.maxValue = fullHealth;
@@ -33,6 +35,7 @@ public class playerHealth : MonoBehaviour {
     void Update () {
         if (damaged)
         {
+            
             damageScreen.color = damagedColor;
 
         }

@@ -13,11 +13,11 @@ public class shootSpore : MonoBehaviour {
 	void Start () {
         canonAmin = GetComponentInChildren<Animator>();
         nextShootTime = 0f;
-        if (Random.Range(0, 10) >= changeShoot)
+        /*if (Random.Range(0, 10) >= changeShoot)
         {
             Instantiate(theProjectile, shootFrom.position, Quaternion.identity);
             canonAmin.SetTrigger("canShoot");
-        }
+        }*/
 	
 	}
 	
@@ -30,6 +30,11 @@ public class shootSpore : MonoBehaviour {
         if (other.tag == "Player" && nextShootTime < Time.time)
         {
             nextShootTime = Time.time + shootTime;
+            if (Random.Range(0, 10) >= changeShoot)
+            {
+                Instantiate(theProjectile, shootFrom.position, Quaternion.identity);
+                canonAmin.SetTrigger("canonShoot");
+            }
         }
     }
 }
