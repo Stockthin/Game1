@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\restartGame.cs" />
     <Compile Include="Assets\Scripts\shootSpore.cs" />
     <Compile Include="Assets\Scripts\sporeController.cs" />
+    <Compile Include="Assets\Scroll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
